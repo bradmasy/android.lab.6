@@ -8,6 +8,7 @@ import brad.masciotra.lab6.utilityClasses.SlideAdapter;
 
 public class MainActivity extends FragmentActivity {
 
+    final public static int numberOfPages = 3;
     private ViewPager2 pager;
     private FragmentStateAdapter FSA;
 
@@ -18,6 +19,8 @@ public class MainActivity extends FragmentActivity {
 
         pager = findViewById(R.id.pager);
         FSA = new SlideAdapter(this);
+        pager.setAdapter(FSA);
+
 
     }
 }
