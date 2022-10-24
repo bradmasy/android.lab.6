@@ -4,28 +4,18 @@ import android.os.Bundle;
 import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import brad.masciotra.lab6.firebase.Usage;
+import androidx.fragment.app.Fragment;
 import brad.masciotra.lab6.random.RandomColor;
 
-public class ViewTwo extends FragmentImplementer {
+public class FragmentImplementer extends Fragment {
 
-    final private Usage usage;
-
-    public ViewTwo(int implementation, Usage usage) {
+    public FragmentImplementer(int implementation){
         super(implementation);
-        this.usage = usage;
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
         RandomColor.changeBackground(this);
-        int count = usage.getCount();
-        usage.setCount(++count);
     }
 }

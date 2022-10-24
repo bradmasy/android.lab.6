@@ -1,25 +1,21 @@
 package brad.masciotra.lab6.fragments;
 
-import android.os.Bundle;
-import android.view.View;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-
-import java.util.List;
-
-import brad.masciotra.lab6.R;
+import brad.masciotra.lab6.firebase.Usage;
 import brad.masciotra.lab6.random.*;
-
-import brad.masciotra.lab6.interfaces.FragmentImplementer;
 
 public class ViewOne extends FragmentImplementer {
 
-    public ViewOne(int implementation) {
+    final private Usage usage;
+    public ViewOne(int implementation, Usage usage) {
         super(implementation);
-        List<Integer> color = RandomColor.generateRandomColor();
-
-
+        this.usage = usage;
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        RandomColor.changeBackground(this);
+        int count = usage.getCount();
+        usage.setCount(++count);
+    }
 }
